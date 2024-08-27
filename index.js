@@ -1,5 +1,17 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  //this stores unique values. Unlike an array, which can contain duplicate values
+  //a Set will only store each unique value once.
+  const seenNumbers = new Set();
+  for (const number of array) {
+    const complement = target - number;
+    if (seenNumbers.has(complement)) { //If the has() method returns true, it means the complement value has already been 
+                                        //seen before and is present in the seenNumbers Set.
+      return true;
+    }
+    seenNumbers.add(number);
+  }
+
+  return false;
 }
 
 /* 
